@@ -105,3 +105,52 @@
    </pre>
  </code>
 </div>
+
+<div>
+  <input type="checkbox" [formControl]="agreeField">
+  &nbsp;
+  <button>Ver valor</button>
+  agre: {{agreeField.value}}
+  <i>asi vemos la propiedades del formControl checkbox </i>
+  <code>
+   <pre>
+     <!-- {{colorField | json}} -->
+   </pre>
+ </code>
+</div>
+
+<div>
+  <label >male</label>
+  <input name="gender" type="radio" [formControl]="genderField" value="male">
+  <label >famale</label>
+  <input  name="gender" type="radio" [formControl]="genderField" value="famale">
+  <label >other</label>
+  <input  name="gender" type="radio" [formControl]="genderField" value="other" >
+  &nbsp;
+  <button>Ver valor</button>
+  agre: {{genderField.value}}
+  <i>asi vemos la propiedades del formControl radio </i>
+  <code>
+   <pre>
+     <!-- {{colorField | json}} -->
+   </pre>
+ </code>
+</div>
+
+<div>
+  <label >zona 1</label>
+  <input name="zone" type="radio" [formControl]="zoneField" value="zona-1">
+  <label >zona 2</label>
+  <input name="zone" type="radio" [formControl]="zoneField" value="zona-2">
+  <label >zona 3</label>
+  <input name="zone" type="radio" [formControl]="zoneField" value="zona-3" >
+  &nbsp;
+  <button>Ver valor</button>
+  zone: {{zoneField.value}}
+  <i>asi vemos la propiedades del formControl radio </i>
+  <code>
+   <pre>
+     <!-- {{colorField | json}} -->
+   </pre>
+ </code>
+</div>
