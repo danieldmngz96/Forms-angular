@@ -13,7 +13,7 @@
 </div>
 
 <div>
-  <input type="email"  [formControl]="emailField" />
+  <input type="email" [formControl]="emailField" />
   &nbsp;
   <span> Email: {{emailField.value}} </span>
   <br>
@@ -26,10 +26,10 @@
 </div>
 
 <div>
-  <input type="tel"  [formControl]="phoneField" />
+  <input type="tel" [formControl]="phoneField" />
   &nbsp;
-  <button >Ver valor</button>
-   Phone: {{phoneField.value}}
+  <button>Ver valor</button>
+  Phone: {{phoneField.value}}
   <br>
   <i>asi vemos la propiedades del formControl tel </i>
   <code>
@@ -40,10 +40,10 @@
 </div>
 
 <div>
-  <input type="number"  [formControl]="numberField" />
+  <input type="number" [formControl]="numberField" />
   &nbsp;
-  <button >Ver valor</button>
-   numero: {{numberField.value}}
+  <button>Ver valor</button>
+  numero: {{numberField.value}}
   <br>
   <i>asi vemos la propiedades del formControl number </i>
   <code>
@@ -54,14 +54,54 @@
 </div>
 
 <div>
-  <input type="color"  [formControl]="colorField" />
+  <input type="color" [formControl]="colorField" />
   &nbsp;
-  <button >Ver valor</button>
-   Color: {{colorField.value}}
+  <button>Ver valor</button>
+  Color: {{colorField.value}}
   <i>asi vemos la propiedades del formControl color </i>
   <code>
   <pre>
     <!-- {{colorField | json}} -->
   </pre>
 </code>
+</div>
+
+<div>
+  <select [formControl]="categoryField">
+    <option value="category-1">category</option>
+    <option value="category-2">category</option>
+    <option value="category-3">category</option>
+    <option value="category-4">category 👽</option>
+    <option value="category-5">category</option>
+    <option value="category-6">category</option>
+  </select>
+  &nbsp;
+  <button>Ver valor</button>
+  Select: {{categoryField.value}}
+  <i>asi vemos la propiedades del formControl color </i>
+  <code>
+  <pre>
+    <!-- {{colorField | json}} -->
+  </pre>
+</code>
+</div>
+
+<div>
+  <select [formControl]="tagField" multiple>
+    <option value="tag-1">tagField</option>
+    <option value="tag-2">categotagFieldry</option>
+    <option value="tag-3">tagField</option>
+    <option value="tag-4">catetagFieldgory 👽</option>
+    <option value="tag-5">cattagFieldegory</option>
+    <option value="tag-6">cattagFieldegory</option>
+  </select>
+  &nbsp;
+  <button>Ver valor</button>
+  Select: {{tagField.value}}
+  <i>asi vemos la propiedades del formControl color </i>
+  <code>
+   <pre>
+     <!-- {{colorField | json}} -->
+   </pre>
+ </code>
 </div>

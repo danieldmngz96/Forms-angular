@@ -15,6 +15,9 @@ export class BasicFormComponent implements OnInit {
   numberField = new FormControl('');
   colorField = new FormControl("#000");
 
+  categoryField = new FormControl('category-4');
+  tagField = new FormControl('');
+
   constructor() { }
 
   ngOnInit(): void {
