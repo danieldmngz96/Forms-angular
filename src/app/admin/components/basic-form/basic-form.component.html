@@ -1,1 +1,67 @@
-<input type="text" name="" [formControl]="nameField"/>
+<div>
+  <input type="text" [formControl]="nameField" />
+  &nbsp;
+  <button (click)="getNameValue()">Ver valor</button>
+  {{nameField.value}}
+  <br>
+  <i>asi vemos la propiedades del formControl </i>
+  <code>
+    <pre>
+ <!--      {{nameField | json}} -->
+    </pre>
+  </code>
+</div>
+
+<div>
+  <input type="email"  [formControl]="emailField" />
+  &nbsp;
+  <span> Email: {{emailField.value}} </span>
+  <br>
+  <i>asi vemos la propiedades del formControl email </i>
+  <code>
+  <pre>
+  <!--   {{emailField | json}} -->
+  </pre>
+</code>
+</div>
+
+<div>
+  <input type="tel"  [formControl]="phoneField" />
+  &nbsp;
+  <button >Ver valor</button>
+   Phone: {{phoneField.value}}
+  <br>
+  <i>asi vemos la propiedades del formControl tel </i>
+  <code>
+  <pre>
+  <!--   {{phoneField | json}} -->
+  </pre>
+</code>
+</div>
+
+<div>
+  <input type="number"  [formControl]="numberField" />
+  &nbsp;
+  <button >Ver valor</button>
+   numero: {{numberField.value}}
+  <br>
+  <i>asi vemos la propiedades del formControl number </i>
+  <code>
+  <pre>
+<!--     {{numberField | json}} -->
+  </pre>
+</code>
+</div>
+
+<div>
+  <input type="color"  [formControl]="colorField" />
+  &nbsp;
+  <button >Ver valor</button>
+   Color: {{colorField.value}}
+  <i>asi vemos la propiedades del formControl color </i>
+  <code>
+  <pre>
+    <!-- {{colorField | json}} -->
+  </pre>
+</code>
+</div>
