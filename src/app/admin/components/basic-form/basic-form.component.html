@@ -1,156 +1,156 @@
-<div>
-  <input type="text" [formControl]="nameField" />
-  &nbsp;
-  <button (click)="getNameValue()">Ver valor</button>
-  {{nameField.value}}
-  <br>
-  <i>asi vemos la propiedades del formControl </i>
-  <code>
+<form [formGroup]="form" (ngSubmit)="save($event)">
+  <div>
+    <input type="text"
+    formControlName="name"
+    [class.is-valid]=" isNameFieldValid"
+    [class.is-invalid]="isNameFieldInvalid"/>
+    &nbsp;
+    <button [disabled]="nameField.valid" (click)="getNameValue()">Ver valor</button>
+    <b>nombre{{form.get('name').value}} valido o no {{nameField.invalid}} </b>
+    <br>
+    <div class="messages" [class.active]="isNameFieldInvalid">
+      <strong  *ngIf="nameField.touched && nameField.hasError('required') || nameField.hasError('maxLength') || nameField.hasError('minLength')">Este campo es requerido <br> Este campo tines que tener minimo 2 caracteres <br> Este campo tines que tener maximo 10 caracteres</strong>
+    </div>
+
+    <code>
+      <pre>
+   <!--      {{nameField | json}} -->
+      </pre>
+    </code>
+  </div>
+
+  <div>
+    <input type="email" formControlName="email"/>
+    &nbsp;
+    <span> Email: {{emailField.value}} </span>
+    <br>
+    <i>asi vemos la propiedades del formControl email </i>
+    <code>
     <pre>
- <!--      {{nameField | json}} -->
+    <!--   {{emailField | json}} -->
     </pre>
   </code>
-</div>
+  </div>
 
-<div>
-  <input type="email" [formControl]="emailField" />
-  &nbsp;
-  <span> Email: {{emailField.value}} </span>
-  <br>
-  <i>asi vemos la propiedades del formControl email </i>
-  <code>
-  <pre>
-  <!--   {{emailField | json}} -->
-  </pre>
-</code>
-</div>
+  <div>
+    <input type="tel" formControlName="phone"/>
+    &nbsp;
+    <button>Ver valor</button>
+    Phone: {{phoneField.value}}
+    <br>
+    <i>asi vemos la propiedades del formControl tel </i>
+    <code>
+    <pre>
+    <!--   {{phoneField | json}} -->
+    </pre>
+  </code>
+  </div>
 
-<div>
-  <input type="tel" [formControl]="phoneField" />
-  &nbsp;
-  <button>Ver valor</button>
-  Phone: {{phoneField.value}}
-  <br>
-  <i>asi vemos la propiedades del formControl tel </i>
-  <code>
-  <pre>
-  <!--   {{phoneField | json}} -->
-  </pre>
-</code>
-</div>
 
-<div>
-  <input type="number" [formControl]="numberField" />
-  &nbsp;
-  <button>Ver valor</button>
-  numero: {{numberField.value}}
-  <br>
-  <i>asi vemos la propiedades del formControl number </i>
-  <code>
-  <pre>
-<!--     {{numberField | json}} -->
-  </pre>
-</code>
-</div>
+  <div>
+    <input type="color" formControlName="color" />
+    &nbsp;
+    <button>Ver valor</button>
+    Color: {{colorField.value}}
+    <i>asi vemos la propiedades del formControl color </i>
+    <code>
+    <pre>
+      <!-- {{colorField | json}} -->
+    </pre>
+  </code>
+  </div>
 
-<div>
-  <input type="color" [formControl]="colorField" />
-  &nbsp;
-  <button>Ver valor</button>
-  Color: {{colorField.value}}
-  <i>asi vemos la propiedades del formControl color </i>
-  <code>
-  <pre>
-    <!-- {{colorField | json}} -->
-  </pre>
-</code>
-</div>
+  <div>
+    <select formControlName="category">
+      <option value="category-1">category</option>
+      <option value="category-2">category</option>
+      <option value="category-3">category</option>
+      <option value="category-4">category 👽</option>
+      <option value="category-5">category</option>
+      <option value="category-6">category</option>
+    </select>
+    &nbsp;
+    <button>Ver valor</button>
+    Select: {{categoryField.value}}
+    <i>asi vemos la propiedades del formControl color </i>
+    <code>
+    <pre>
+<!--   {{colorField | json}} -->
+    </pre>
+  </code>
+  </div>
 
-<div>
-  <select [formControl]="categoryField">
-    <option value="category-1">category</option>
-    <option value="category-2">category</option>
-    <option value="category-3">category</option>
-    <option value="category-4">category 👽</option>
-    <option value="category-5">category</option>
-    <option value="category-6">category</option>
-  </select>
-  &nbsp;
-  <button>Ver valor</button>
-  Select: {{categoryField.value}}
-  <i>asi vemos la propiedades del formControl color </i>
-  <code>
-  <pre>
-    <!-- {{colorField | json}} -->
-  </pre>
-</code>
-</div>
+  <div>
+    <select formControlName="tag" multiple>
+      <option value="tag-1">tagField</option>
+      <option value="tag-2">categotagFieldry</option>
+      <option value="tag-3">tagField</option>
+      <option value="tag-4">catetagFieldgory 👽</option>
+      <option value="tag-5">cattagFieldegory</option>
+      <option value="tag-6">cattagFieldegory</option>
+    </select>
+    &nbsp;
+    <button>Ver valor</button>
+    Select: {{tagField.value}}
+    <i>asi vemos la propiedades del formControl color </i>
+    <code>
+     <pre>
+       <!-- {{colorField | json}} -->
+     </pre>
+   </code>
+  </div>
 
-<div>
-  <select [formControl]="tagField" multiple>
-    <option value="tag-1">tagField</option>
-    <option value="tag-2">categotagFieldry</option>
-    <option value="tag-3">tagField</option>
-    <option value="tag-4">catetagFieldgory 👽</option>
-    <option value="tag-5">cattagFieldegory</option>
-    <option value="tag-6">cattagFieldegory</option>
-  </select>
-  &nbsp;
-  <button>Ver valor</button>
-  Select: {{tagField.value}}
-  <i>asi vemos la propiedades del formControl color </i>
-  <code>
-   <pre>
-     <!-- {{colorField | json}} -->
-   </pre>
- </code>
-</div>
+  <div>
+    <input type="checkbox" formControlName="agree">
+    &nbsp;
+    <button>Ver valor</button>
+    agre: {{agreeField.value}}
+    <i>asi vemos la propiedades del formControl checkbox </i>
+    <code>
+     <pre>
+       <!-- {{colorField | json}} -->
+     </pre>
+   </code>
+  </div>
 
-<div>
-  <input type="checkbox" [formControl]="agreeField">
-  &nbsp;
-  <button>Ver valor</button>
-  agre: {{agreeField.value}}
-  <i>asi vemos la propiedades del formControl checkbox </i>
-  <code>
-   <pre>
-     <!-- {{colorField | json}} -->
-   </pre>
- </code>
-</div>
+  <div>
+    <label >male</label>
+    <input name="gender" type="radio" formControlName="gender" value="male">
+    <label >famale</label>
+    <input  name="gender" type="radio" formControlName="gender" value="famale">
+    <label >other</label>
+    <input  name="gender" type="radio" formControlName="gender" value="other" >
+    &nbsp;
+    <button>Ver valor</button>
+    agre: {{genderField.value}}
+    <i>asi vemos la propiedades del formControl radio </i>
+    <code>
+     <pre>
+       <!-- {{colorField | json}} -->
+     </pre>
+   </code>
+  </div>
 
-<div>
-  <label >male</label>
-  <input name="gender" type="radio" [formControl]="genderField" value="male">
-  <label >famale</label>
-  <input  name="gender" type="radio" [formControl]="genderField" value="famale">
-  <label >other</label>
-  <input  name="gender" type="radio" [formControl]="genderField" value="other" >
-  &nbsp;
-  <button>Ver valor</button>
-  agre: {{genderField.value}}
-  <i>asi vemos la propiedades del formControl radio </i>
-  <code>
-   <pre>
-     <!-- {{colorField | json}} -->
-   </pre>
- </code>
-</div>
+  <div>
+    <label >zona 1</label>
+    <input name="zone" type="radio" formControlName="zone" value="zona-1">
+    <label >zona 2</label>
+    <input name="zone" type="radio" formControlName="zone" value="zona-2">
+    <label >zona 3</label>
+    <input name="zone" type="radio" formControlName="zone" value="zona-3" >
+    &nbsp;
+    <button>Ver valor</button>
+    zone: {{zoneField.value}}
+    <i>asi vemos la propiedades del formControl radio </i>
+    <code>
+     <pre>
+       <!-- {{colorField | json}} -->
+     </pre>
+   </code>
+  </div>
 
-<div>
-  <label >zona 1</label>
-  <input name="zone" type="radio" [formControl]="zoneField" value="zona-1">
-  <label >zona 2</label>
-  <input name="zone" type="radio" [formControl]="zoneField" value="zona-2">
-  <label >zona 3</label>
-  <input name="zone" type="radio" [formControl]="zoneField" value="zona-3" >
-  &nbsp;
-  <button>Ver valor</button>
-  zone: {{zoneField.value}}
-  <i>asi vemos la propiedades del formControl radio </i>
-  <code>
-   <pre>
-     <!-- {{colorField | json}} -->
-   </pre>
- </code>
-</div>
+  <div>
+    <button type="submit" value="Enviar" placeholder="Enviar">Enviar</button>
+  </div>
+</form>
+
