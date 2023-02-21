@@ -23,8 +23,8 @@ const routes: Routes = [
       },
       {
         path: 'basic',
-        component: BasicFormComponent,
-      },
+        component: BasicFormComponent
+      }
     ]
   }
 ];

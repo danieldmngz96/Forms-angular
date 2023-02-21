@@ -1,16 +1,20 @@
 input {
   &.is-valid {
-    border: 2px solid greenyellow;
+    border: 2px solid green;
   }
   &.is-invalid {
     border: 2px solid red;
   }
 }
-
-.messages{
+.messages {
   opacity: 0;
-  transition: opacity .5s ease-in;
-  &.active{
+  transition: all .5s ease-in;
+  &.active {
     opacity: 1;
+  }
+}
+form {
+  mat-form-field {
+    width: 100%;
   }
 }

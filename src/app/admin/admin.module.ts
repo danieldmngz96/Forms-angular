@@ -9,7 +9,6 @@ import { NavComponent } from './components/nav/nav.component';
 import { BasicFormComponent } from './components/basic-form/basic-form.component';
 
 
-
 @NgModule({
   declarations: [ NavComponent, BasicFormComponent],
   imports: [
@@ -17,7 +16,6 @@ import { BasicFormComponent } from './components/basic-form/basic-form.component
     AdminRoutingModule,
     ReactiveFormsModule,
     MaterialModule,
-
   ]
 })
 export class AdminModule { }
