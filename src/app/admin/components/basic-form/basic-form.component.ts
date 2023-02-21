@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { FormControl, Validators, FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-basic-form',
@@ -7,24 +7,41 @@ import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms'
   styleUrls: ['./basic-form.component.scss']
 })
 export class BasicFormComponent implements OnInit {
+
   form: FormGroup;
-/*   form = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.maxLength(10)]),
-    email: new FormControl(''),
-    phone: new FormControl(''),
-    color: new FormControl('#000000'),
-    // date: new FormControl(''),
-    age: new FormControl(17),
-    category: new FormControl(''),
-    tag: new FormControl(''),
-    agree: new FormControl(false),
-    gender: new FormControl(''),
-    zone: new FormControl(''),
-  }); */
+
+  constructor(
+    private formBuilder: FormBuilder
+  ) {
+    this.buildForm();
+  }
+
+  ngOnInit(): void {
+    // this.nameField.valueChanges
+    // .subscribe(value => {
+    //   console.log(value);
+    // });
+    // this.form.valueChanges
+    // .subscribe(value => {
+    //   console.log(value);
+    // });
+  }
+
+  getNameValue() {
+    console.log(this.nameField.value);
+  }
+
+  save(event) {
+    if (this.form.valid){
+      console.log(this.form.value);
+    } else {
+      this.form.markAllAsTouched();
+    }
+  }
 
   private buildForm() {
-    this.form = this.FormBuilder.group({
-      fullName: this.FormBuilder.group({
+    this.form = this.formBuilder.group({
+      fullName: this.formBuilder.group({
         name: ['', [Validators.required, Validators.maxLength(10), Validators.pattern(/^[a-zA-Z ]+$/)]],
         last: ['', [Validators.required, Validators.maxLength(10), Validators.pattern(/^[a-zA-Z ]+$/)]]
       }),
@@ -41,51 +58,20 @@ export class BasicFormComponent implements OnInit {
     });
   }
 
-
-  constructor(
-    private FormBuilder: FormBuilder
-  ) {
-    this.buildForm();
-  }
-
-  ngOnInit(): void {
-    this.nameField.valueChanges.subscribe((value: string) => {
-      console.log(value);
-    });
-    this.emailField.valueChanges.subscribe((value: string) => {
-      console.log(value);
-    })
-  }
-
-  getNameValue() {
-    console.log(this.nameField.value);
-  }
-
-  save(event) {
-    if(this.form.valid) {
-      console.log(this.form.valid);
-    }else {
-      this.form.markAllAsTouched();
-    }
-    console.log(this.form.value);
-  }
-
   get nameField() {
-    return this.form.get('fullName.name ');
+    return this.form.get('fullName.name');
   }
 
   get lastField() {
     return this.form.get('fullName.last');
   }
+
   get isNameFieldValid() {
     return this.nameField.touched && this.nameField.valid;
   }
 
   get isNameFieldInvalid() {
-    return this.nameField.touched && this.nameField.invalid &&
-    this.emailField.touched && this.emailField.invalid &&
-    this.phoneField.touched && this.phoneField.invalid
-
+    return this.nameField.touched && this.nameField.invalid;
   }
 
   get emailField() {
@@ -127,7 +113,5 @@ export class BasicFormComponent implements OnInit {
   get zoneField() {
     return this.form.get('zone');
   }
-
-
 
 }

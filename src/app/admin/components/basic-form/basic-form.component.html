@@ -183,23 +183,28 @@
 
 <form [formGroup]="form" (ngSubmit)="save($event)">
   <div formGroupName="fullName">
+    <mat-form-field appearance="fill">
+      <mat-label>Name: {{ nameField.value }}</mat-label>
+      <input matInput type="text" formControlName="name">
+
+      </mat-form-field>
     <p>
       Name: {{ nameField.value }} {{ nameField.valid }}
-      <input [class.is-valid]="isNameFieldValid" [class.is-invalid]="isNameFieldInvalid" type="text"
-        formControlName="name" />
+      <!-- <input [class.is-valid]="isNameFieldValid" [class.is-invalid]="isNameFieldInvalid" type="text"
+        formControlName="name" /> -->
       <button [disabled]="nameField.invalid" (click)="getNameValue()">Get value</button>
 
     </p>
     <div class="messages" [class.active]="isNameFieldInvalid">
-      <p>
-        <strong *ngIf="nameField.hasError('required')">Este campo es requerido</strong>
-      </p>
-      <p>
+      <mat-error>
+        <strong *ngIf="nameField.hasError('required')">Este cam|o es requerido</strong>
+      </mat-error>
+      <mat-error>
         <strong *ngIf="nameField.hasError('maxlength')">debe tener maximo 10 c</strong>
-      </p>
-      <p>
+      </mat-error>
+      <mat-error>
         <strong *ngIf="nameField.hasError('pattern')">No debe tener carac..</strong>
-      </p>
+      </mat-error>
     </div>
     <p>
       Last Name: {{ lastField.value }} {{ lastField.valid }}
